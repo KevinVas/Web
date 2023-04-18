@@ -1,7 +1,9 @@
 package cadastro.web.bean;
 
 public class coordenador {
-	
+	    private String nome;
+		private String curso;
+		private String periodo;
 		public coordenador() {
 		super();
 		
@@ -12,9 +14,7 @@ public class coordenador {
 		this.curso = curso;
 		this.periodo = periodo;
 	}
-		private String nome;
-		private String curso;
-		private String periodo;
+		
 		public String getNome() {
 			return nome;
 		}
@@ -24,8 +24,8 @@ public class coordenador {
 		public String getCurso() {
 			return curso;
 		}
-		public void setCurso(String curso) {
-			this.curso = curso;
+		public void setCurso(String cursos) {
+			this.curso = cursos;
 		}
 		public String getPeriodo() {
 			return periodo;
