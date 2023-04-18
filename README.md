@@ -12,8 +12,11 @@ JavaScript
 
 Como iniciar a aplicação:
 index.html(Pagina inicial)->Run on server
- |-coodenadores.jsp(Editar,Excluir ou Adicionar)
-                     |-Editar.jsp(Informações dos Coordenadores)
+coodenadores.jsp(Editar,Excluir ou Adicionar)
+Editar.jsp(Editar Coordenadores)
+cadastrar.html(Adiciona novos Coordenadores)
+
+
                      
          
 
