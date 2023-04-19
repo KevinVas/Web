@@ -10,7 +10,7 @@ import cadastro.web.bean.coordenador;
 
 public class dao {
 	private String driver ="com.mysql.cj.jdbc.Driver";
-	private String url="jdbc:mysql://127.0.0.1:3306/cadastros?";
+	private String url="jdbc:mysql://127.0.0.1:3306/dbcadastro?";
 	private String user="root";
 	private String password="ceuvermelho";
 	 
@@ -27,7 +27,7 @@ public class dao {
 	}
 	}
 	public void inserirCoordenador(coordenador coo) {
-		String create=" insert into Coordenadores(nome,cursos,periodo) values (?,?,?)";
+		String create="insert into coordenador(nome,cursos,periodo) values (?,?,?)";
 	try{
 		Connection con=conectar();
 		PreparedStatement pst=con.prepareStatement(create);
@@ -42,19 +42,19 @@ public class dao {
 	}
 	public ArrayList<coordenador> listarCoordenador(){
 	  ArrayList<coordenador> coo = new ArrayList<>();
-	  String read= "select * from Coordenadores order by nome;";
+	  String read= "select * from coordenador order by id;";
 	try {
 		Connection con = conectar();
 		PreparedStatement pst = con.prepareStatement(read);
 		ResultSet rs = pst.executeQuery();
 		while (rs.next()) {
-			String nome = rs.getString(1);
-			String curso = rs.getString(2);
-			String periodo = rs.getString(3);
-         coo.add(new coordenador(nome,curso,periodo));
+			String id=rs.getString(1);
+			String nome=rs.getString(2);
+			String curso=rs.getString(3);
+			String periodo=rs.getString(4);
+         coo.add(new coordenador(id, nome, curso, periodo));
 		}
 		con.close();
-		
 		return coo;
 	} catch (Exception e) {
      System.out.println(e);
@@ -62,16 +62,17 @@ public class dao {
 }
 	}
 	 public void selecionarCoordenador(coordenador coo) {
-		 String read2= "select * from Coordenadores where nome= ?";
+		 String read2= "select * from coordenador where id= ?";
 		 try {
 			Connection con=conectar();
 			PreparedStatement pst = con.prepareStatement(read2);
-			pst.setString(1, coo.getNome());
+			pst.setString(1, coo.getId());
 			ResultSet rs= pst.executeQuery();
 			while(rs.next()) {
-				coo.setNome(rs.getString(1));				
-				coo.setCurso(rs.getString(2));
-				coo.setPeriodo(rs.getString(3));
+				coo.setId(rs.getString(1));				
+				coo.setNome(rs.getString(2));				
+				coo.setCurso(rs.getString(3));
+				coo.setPeriodo(rs.getString(4));
 
 			}
 			con.close();
@@ -80,14 +81,14 @@ public class dao {
 		}
 	 }
 		 public void alterar(coordenador coo) {
-			String create = "update Coordenadores set nome=?,cursos=?,periodo=? where nome=?"; 
+			String create = "update coordenador set nome=?,cursos=?,periodo=? where id=?"; 
 		 try {
 			Connection con = conectar();
 			PreparedStatement pst=con.prepareStatement(create);
 		pst.setString(1,coo.getNome());
 		pst.setString(2,coo.getCurso());
 		pst.setString(3,coo.getPeriodo());
-		pst.setString(4,coo.getNome());
+		pst.setString(4,coo.getId());
 		pst.executeUpdate();
 		con.close();
 		 } catch (Exception e) {
@@ -95,11 +96,11 @@ public class dao {
 }
 		 }
 		public void excluirCoordenador(coordenador coo) {
-			String delete="delete from Coordenadores where nome=?";
+			String delete="delete from coordenador where id=?";
 			try {
 				Connection con = conectar();
 				PreparedStatement pst = con.prepareStatement(delete);
-				pst.setString(1, coo.getNome());
+				pst.setString(1, coo.getId());
 				pst.executeUpdate();
 				con.close();
 			} catch (Exception e) {

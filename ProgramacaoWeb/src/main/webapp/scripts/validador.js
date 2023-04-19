@@ -10,11 +10,11 @@ function validar(){
 		Cadastro.nome.focus()
 		return false
 	}else if(curso===""){
-		alert("Preenchao campo Curso")
+		alert("Preencha o campo Curso")
 		Cadastro.curso.focus()
 		return false
 	}else if(periodo===""){
-		alert("Preenchao campo Periodo")
+		alert("Preencha o campo Periodo")
 		Cadastro.periodo.focus()
 		return false
 }else{

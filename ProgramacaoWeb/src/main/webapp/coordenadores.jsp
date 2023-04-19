@@ -19,7 +19,7 @@ ArrayList<coordenador> lista = (ArrayList<coordenador>) request.getAttribute("co
 
 		<thead>
 			<tr>
-				
+				<th>Id</th>
 				<th>Nome</th>
 				<th>Curso</th>
 				<th>Periodo</th>
@@ -31,11 +31,12 @@ ArrayList<coordenador> lista = (ArrayList<coordenador>) request.getAttribute("co
 			for (int i = 0; i < lista.size(); i++) {
 			%>
 			<tr>
+				<td><%=lista.get(i).getId()%></td>
 				<td><%=lista.get(i).getNome()%></td>
 				<td><%=lista.get(i).getCurso()%></td>
 				<td><%=lista.get(i).getPeriodo()%></td>
-				<td><a href="select?nome=<%=lista.get(i).getNome()%>" class="Botao">Editar</a></td>
-				<td><a href="javascript: excluir(<%=lista.get(i).getNome()%>)" class="Botao">Apagar</a>
+				<td><a href="select?id=<%=lista.get(i).getId()%>" class="Botao">Editar</a></td>
+				<td><a href="javascript: excluir(<%=lista.get(i).getId()%>)" class="Botao">Apagar</a>
 				</td>
 			</tr>
 			<%

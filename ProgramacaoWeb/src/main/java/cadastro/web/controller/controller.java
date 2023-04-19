@@ -38,7 +38,7 @@ public class controller extends HttpServlet {
         	  listarCoordenador(request,response);
           }else if (action.equals("/update")) {
         	  editarCoordenador(request,response);
-          } else if (action.equals("/excluir")) {
+          } else if (action.equals("/delete")) {
         	  excluirCoordenador(request,response);
           } else {
         	  response.sendRedirect("index.htmal");
@@ -65,9 +65,10 @@ public class controller extends HttpServlet {
 	
 	protected void listarCoordenador(HttpServletRequest request, HttpServletResponse response)
 		throws ServletException, IOException  {
-		String nome=request.getParameter("nome");
-        coo.setNome(nome);
+		String id=request.getParameter("id");
+        coo.setId(request.getParameter("id"));
         dao.selecionarCoordenador(coo); 
+        request.setAttribute("id", coo.getId());
         request.setAttribute("nome", coo.getNome());
         request.setAttribute("curso", coo.getCurso());
         request.setAttribute("periodo", coo.getPeriodo());
@@ -77,10 +78,8 @@ public class controller extends HttpServlet {
   }
 	protected void editarCoordenador(HttpServletRequest request, HttpServletResponse response)
 		throws ServletException, IOException  {
-		//System.out.println(request.getParameter("nome"));
-		//System.out.println(request.getParameter("curso"));
-		//System.out.println(request.getParameter("periodo"));
-
+		
+		coo.setId(request.getParameter("id"));
 		coo.setNome(request.getParameter("nome"));
 		coo.setCurso(request.getParameter("curso"));
 	    coo.setPeriodo(request.getParameter("periodo"));
@@ -91,10 +90,9 @@ public class controller extends HttpServlet {
 	}
 	protected void excluirCoordenador(HttpServletRequest request, HttpServletResponse response)
 		throws ServletException, IOException  {
-		String nome=request.getParameter("nome");
-        coo.setNome(nome);
-        dao.excluirCoordenador(coo);
-        response.sendRedirect("main");
+		coo.setId(request.getParameter("id"));
+		dao.excluirCoordenador(coo);
+		response.sendRedirect("main");
 	}
   }
 	

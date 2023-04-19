@@ -13,6 +13,13 @@
 		<table>
 			
 	<tr>
+	<td>Id</td>
+	<td><input type="text" name="id" class="Caixa" readonly
+	value="<%out.print(request.getAttribute("id"));%>"></td>
+	</tr>
+	
+	
+	<tr>
 	<td>Nome</td>
 	<td><input type="text" name="nome" class="Caixa"
 	value="<%out.print(request.getAttribute("nome"));%>"></td>

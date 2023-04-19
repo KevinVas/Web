@@ -1,19 +1,30 @@
 package cadastro.web.bean;
 
 public class coordenador {
+    	private String id;
 	    private String nome;
 		private String curso;
 		private String periodo;
+		
 		public coordenador() {
 		super();
 		
 	}
-		public coordenador(String nome, String curso, String periodo) {
-		super();
-		this.nome = nome;
-		this.curso = curso;
-		this.periodo = periodo;
-	}
+
+		public coordenador(String id, String nome, String curso, String periodo) {
+			super();
+			this.id = id;
+			this.nome = nome;
+			this.curso = curso;
+			this.periodo = periodo;
+		}
+
+		public String getId() {
+			return id;
+		}
+		public void setId(String id) {
+			this.id = id;
+		}
 		
 		public String getNome() {
 			return nome;
