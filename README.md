@@ -1,7 +1,7 @@
 # Web
 Projeto web avaliação
 
-Aplicação web desenvolvida para efetua cadastros de coodernadores
+Aplicação web desenvolvida para efetuar cadastros de coodernadores
 
 Tecnologias Aplicadas:
 
