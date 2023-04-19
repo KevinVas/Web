@@ -9,8 +9,12 @@ Java
 Mysql
 Html
 JavaScript
+Apache tomcat 9.0
+(Versão 10 não foi usada pois apresentava problemas na minha maquina)
 
-Como iniciar a aplicação:
+Como usar a aplicação:
+Deve ser iniciada usando 
+ |
 index.html(Pagina inicial)->Run on server
 
 coodenadores.jsp(Editar,Excluir ou Adicionar)
